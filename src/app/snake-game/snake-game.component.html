@@ -1,0 +1,10 @@
+<!-- snake-game.component.html -->
+
+<div class="snake-game-container">
+    <div class="game-board">
+        <div *ngFor="let row of gameBoard; let i = index" class="board-row">
+          <div *ngFor="let cell of row; let j = index" class="cell" [ngClass]="getCellClass(i, j)"></div>
+        </div>
+      </div>
+  </div>
+  

@@ -1,0 +1,55 @@
+
+<div class="container">
+    <div class="sidenav">
+        <ul>
+          <li class="nav-item">
+            <button class="btn btn-light" (click)="switchGame('ticTacToe')" style="margin-bottom: 5px;">
+              Tic Tac Toe
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-light" (click)="switchGame('guessNumber')" style="margin-bottom: 5px;">
+              Guess the Number
+            </button>
+          </li>
+          
+        </ul>
+      </div>
+    <div class="content">
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-4">
+          <div *ngIf="currentGame === 'ticTacToe'">
+            <h1>Tic Tac Toe</h1>
+            <div class="board">
+              <div
+                *ngFor="let cell of board; let i = index"
+                class="cell"
+                (click)="makeMove(i)"
+              >
+                {{ cell }}
+              </div>
+            </div>
+            <div *ngIf="winner">
+              <h3 *ngIf="winner !== 'Draw'">{{ winner }} wins!</h3>
+              <h3 *ngIf="winner === 'Draw'">It's a draw!</h3>
+              <button (click)="resetGame()">Play Again</button>
+            </div>
+          </div>
+  
+          <div *ngIf="currentGame === 'guessNumber'">
+            <h1>Guess the Number</h1>
+            <p>Guess a number between 1 and 100:</p>
+            <input type="number" [(ngModel)]="guess" />
+            <button class="btn btn-light" (click)="checkGuess()" style="margin-top: 10px;">Check Guess</button>
+            <p *ngIf="guessResult">{{ guessResult }}</p>
+          </div>
+          <div *ngIf="currentGame === 'snakeGame'">
+            <h1>Snake Game</h1>
+            <!-- Add the Snake game component -->
+            <app-snake-game></app-snake-game>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

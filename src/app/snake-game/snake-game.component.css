@@ -1,0 +1,15 @@
+/* snake-game.component.css */
+
+.snake-game-container {
+    border: 2px solid #333;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(20, 20px);
+  }
+  
+  /* Add more styling based on your game's design */
+  
